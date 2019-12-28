@@ -760,6 +760,8 @@ private partitionDisarmed(){
 		parent.unlockIt()
 		parent.switchItDisarmed()
 		parent.speakDisarmed()
+	        parent.pushDisarmButton()
+
 
 		if (location.hsmStatus != "disarmed")
 		{
@@ -858,6 +860,8 @@ private systemArmed(){
 		parent.lockIt()
 		parent.switchItArmed()
 		parent.speakArmed()
+		parent.pushArmedAwayButton()
+
 
 		if (location.hsmStatus == "disarmed")
 		{
@@ -873,6 +877,8 @@ private systemArmedHome(){
 		parent.lockIt()
 		parent.switchItArmed()
 		parent.speakArmed()
+		parent.pushArmedHomeButton()
+
 
 		if (location.hsmStatus == "disarmed")
 		{
