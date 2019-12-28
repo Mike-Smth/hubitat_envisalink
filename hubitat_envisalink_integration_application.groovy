@@ -190,6 +190,12 @@ def switchPage() {
 					ifDebug("Switches off when Armed: ${offSwitches}")
 
 			}
+	section("<h1>Buttons</h1>"){
+                paragraph "Integrating Buttons"
+                    input "armedStayButton", "capability.pushableButton", title: "Which Button to push when you Arm to Stay at Home?", required:false, multiple:false, submitOnChange:true
+                    input "armedAwayButton", "capability.pushableButton", title: "Which Button to push when you Arm for Away?", required:false, multiple:false, submitOnChange:true
+                    input "disarmButton",    "capability.pushableButton", title: "Which Button to push when you Disarm?", required:false, multiple:false, submitOnChange:true
+		}
 	}
 }
 
@@ -688,6 +694,27 @@ def switchItDisarmed(){
 	} else {
 		offSwitchesOn()
 	}
+}
+
+
+def pushDisarmButton() {
+        
+    if (disarmButton) {
+        disarmButton.push()
+    }
+}
+
+def pushArmedAwayButton() {
+    
+    if (armedAwayButton) {
+        armedAwayButton.push()
+    }
+}
+
+def pushArmedStayButton() {
+    if (armedStayButton) {
+        armedStayButton.push()
+    }
 }
 
 def onSwitchesOn(){
